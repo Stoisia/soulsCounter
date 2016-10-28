@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SoulsCounter</string>
+    <string name="player1Name">Joueur 1</string>
+    <string name="player2Name">Joueur 2</string>
+    <string name="player3Name">Joueur 3</string>
+    <string name="player4Name">Joueur 4</string>
+    <string name="allPlayers">Tous les joueurs</string>
+    <string name="theSoulsToTransfer">0</string>
+</resources>
