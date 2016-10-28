@@ -3,8 +3,17 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_toLeftOf="@+id/souls_totalSoulsCount"
+        android:layout_alignBottom="@id/souls_totalSoulsCount"
+        android:layout_marginRight="6dp"
+        android:src="@drawable/souls_logo"/>
     <TextView
-        android:id="@+id/souls_totalSoulsCount"
+        android:id="@id/souls_totalSoulsCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -14,102 +23,6 @@
     <!--
     player list with souls count
     -->
-    <!--
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@id/souls_totalSoulsCount"
-        android:id="@+id/souls_listPlayerContainer">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:background="@color/aliveColor"
-            android:clickable="true"
-            android:id="@+id/souls_player1"
-            android:layout_margin="3dp">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/character"
-                android:layout_gravity="center_horizontal"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/souls_soulsPlayer1"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:background="@color/aliveColor"
-            android:clickable="true"
-            android:id="@+id/souls_player2"
-            android:layout_margin="3dp">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"
-                android:layout_gravity="center_horizontal"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/souls_soulsPlayer2"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:background="@color/aliveColor"
-            android:clickable="true"
-            android:id="@+id/souls_player3"
-            android:layout_margin="3dp">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"
-                android:layout_gravity="center_horizontal"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/souls_soulsPlayer3"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:background="@color/aliveColor"
-            android:clickable="true"
-            android:id="@+id/souls_player4"
-            android:layout_margin="3dp">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"
-                android:layout_gravity="center_horizontal"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/souls_soulsPlayer4"/>
-        </LinearLayout>
-    </LinearLayout>
-    -->
-    <!--
-    test
-    -->
     <LinearLayout
         android:id="@+id/souls_listPlayerContainer"
         android:layout_width="match_parent"
@@ -118,17 +31,17 @@
 
         <RelativeLayout
             android:id="@+id/souls_player1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
             android:background="@color/aliveColor"
             android:clickable="true"
-            android:padding="3dp">
+            android:padding="2dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
                 android:src="@drawable/character" />
@@ -140,26 +53,24 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:text="0"
-                android:textColor="@color/white"
                 android:textSize="18dp"
-                android:textStyle="bold" />
-
+                android:textStyle="bold"/>
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/souls_player2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
             android:background="@color/aliveColor"
             android:clickable="true"
-            android:padding="3dp">
+            android:padding="2dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/character" />
@@ -171,7 +82,6 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:text="0"
-                android:textColor="@color/white"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
@@ -180,20 +90,20 @@
 
         <RelativeLayout
             android:id="@+id/souls_player3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
             android:background="@color/aliveColor"
             android:clickable="true"
-            android:padding="3dp">
+            android:padding="2dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/character" />
+                android:src="@drawable/character"/>
 
             <TextView
                 android:id="@+id/souls_soulsPlayer3"
@@ -202,7 +112,6 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:text="0"
-                android:textColor="@color/white"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
@@ -211,17 +120,17 @@
 
         <RelativeLayout
             android:id="@+id/souls_player4"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
             android:background="@color/aliveColor"
             android:clickable="true"
-            android:padding="3dp">
+            android:padding="2dp">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/character" />
@@ -233,7 +142,6 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:text="0"
-                android:textColor="@color/white"
                 android:textSize="18dp"
                 android:textStyle="bold" />
 
@@ -249,117 +157,89 @@
         android:layout_below="@id/souls_listPlayerContainer"
         android:orientation="horizontal">
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/souls_fallenSoulsLayoutPlayer1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
-            android:background="@color/aliveColor"
-            android:padding="3dp"
-            android:visibility="invisible">
-
+            android:visibility="invisible"
+            android:orientation="horizontal">
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_gravity="center_horizontal"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:src="@drawable/fallen_souls" />
-
             <TextView
                 android:id="@+id/souls_fallenSoulsCountPlayer1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center_vertical"
                 android:text="0" />
 
-        </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/souls_fallenSoulsLayoutPlayer2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
-            android:background="@color/aliveColor"
-            android:padding="3dp"
-            android:visibility="invisible">
-
+            android:visibility="invisible"
+            android:orientation="horizontal">
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_gravity="center_horizontal"
-                android:src="@mipmap/ic_launcher" />
-
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/fallen_souls" />
             <TextView
                 android:id="@+id/souls_fallenSoulsCountPlayer2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center_vertical"
                 android:text="0" />
 
-        </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/souls_fallenSoulsLayoutPlayer3"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
-            android:background="@color/aliveColor"
-            android:padding="3dp"
-            android:visibility="invisible">
-
+            android:visibility="invisible"
+            android:orientation="horizontal">
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_gravity="center_horizontal"
-                android:src="@mipmap/ic_launcher" />
-
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/fallen_souls" />
             <TextView
                 android:id="@+id/souls_fallenSoulsCountPlayer3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center_vertical"
                 android:text="0" />
 
-        </RelativeLayout>
+        </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/souls_fallenSoulsLayoutPlayer4"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
-            android:background="@color/aliveColor"
-            android:padding="3dp"
-            android:visibility="invisible">
-
+            android:visibility="invisible"
+            android:orientation="horizontal">
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_gravity="center_horizontal"
-                android:src="@mipmap/ic_launcher" />
-
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/fallen_souls" />
             <TextView
                 android:id="@+id/souls_fallenSoulsCountPlayer4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center_vertical"
                 android:text="0" />
 
-        </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
     <!--
     add souls commands
@@ -375,40 +255,40 @@
             android:id="@+id/souls_add10Souls"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
             android:layout_weight="1"
+            style="@style/ButtonStyle"
             android:text="+10" />
 
         <Button
             android:id="@+id/souls_add30Souls"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
             android:layout_weight="1"
+            style="@style/ButtonStyle"
             android:text="+30" />
 
         <Button
             android:id="@+id/souls_add35Souls"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
             android:layout_weight="1"
+            style="@style/ButtonStyle"
             android:text="+35" />
 
         <Button
             android:id="@+id/souls_add40Souls"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
             android:layout_weight="1"
+            style="@style/ButtonStyle"
             android:text="+40" />
 
         <Button
             android:id="@+id/souls_add150Souls"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
             android:layout_weight="1"
+            style="@style/ButtonStyle"
             android:text="+150" />
     </LinearLayout>
 
@@ -423,40 +303,40 @@
             android:id="@+id/souls_add160Souls"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
             android:layout_weight="1"
+            style="@style/ButtonStyle"
             android:text="+160" />
 
         <Button
             android:id="@+id/souls_add200Souls"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
             android:layout_weight="1"
+            style="@style/ButtonStyle"
             android:text="+200" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
             android:layout_weight="1"
             android:text="+200"
+            style="@style/ButtonStyle"
             android:visibility="invisible" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
             android:layout_weight="1"
             android:text="+200"
+            style="@style/ButtonStyle"
             android:visibility="invisible" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="3dp"
             android:layout_weight="1"
             android:text="+200"
+            style="@style/ButtonStyle"
             android:visibility="invisible" />
     </LinearLayout>
 
@@ -472,6 +352,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="30"
+            style="@style/ButtonStyle"
             android:text="@string/player1Name" />
 
         <EditText
@@ -487,6 +368,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            style="@style/ButtonStyle"
             android:text="+" />
 
         <Button
@@ -494,6 +376,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            style="@style/ButtonStyle"
             android:text="-" />
     </LinearLayout>
 </RelativeLayout>

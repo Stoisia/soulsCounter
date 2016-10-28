@@ -24,7 +24,7 @@ public class Souls extends Activity {
     private TextView totalSoulsCount;
     private RelativeLayout player1, player2, player3, player4;
     private TextView soulsCountPlayer1, soulsCountPlayer2, soulsCountPlayer3, soulsCountPlayer4;
-    private RelativeLayout fallenSoulsLayoutPlayer1, fallenSoulsLayoutPlayer2, fallenSoulsLayoutPlayer3, fallenSoulsLayoutPlayer4;
+    private LinearLayout fallenSoulsLayoutPlayer1, fallenSoulsLayoutPlayer2, fallenSoulsLayoutPlayer3, fallenSoulsLayoutPlayer4;
     private TextView fallenSoulsCountPlayer1, fallenSoulsCountPlayer2, fallenSoulsCountPlayer3, fallenSoulsCountPlayer4;
     private TextView howManySouls;
     private Button add10Souls, add30Souls, add35Souls, add40Souls, add150Souls, add160Souls, add200Souls, selectPlayer, plusSouls, minusSouls;
@@ -44,10 +44,10 @@ public class Souls extends Activity {
         soulsCountPlayer2 = (TextView) findViewById(R.id.souls_soulsPlayer2);
         soulsCountPlayer3 = (TextView) findViewById(R.id.souls_soulsPlayer3);
         soulsCountPlayer4 = (TextView) findViewById(R.id.souls_soulsPlayer4);
-        fallenSoulsLayoutPlayer1 = (RelativeLayout) findViewById(R.id.souls_fallenSoulsLayoutPlayer1);
-        fallenSoulsLayoutPlayer2 = (RelativeLayout) findViewById(R.id.souls_fallenSoulsLayoutPlayer2);
-        fallenSoulsLayoutPlayer3 = (RelativeLayout) findViewById(R.id.souls_fallenSoulsLayoutPlayer3);
-        fallenSoulsLayoutPlayer4 = (RelativeLayout) findViewById(R.id.souls_fallenSoulsLayoutPlayer4);
+        fallenSoulsLayoutPlayer1 = (LinearLayout) findViewById(R.id.souls_fallenSoulsLayoutPlayer1);
+        fallenSoulsLayoutPlayer2 = (LinearLayout) findViewById(R.id.souls_fallenSoulsLayoutPlayer2);
+        fallenSoulsLayoutPlayer3 = (LinearLayout) findViewById(R.id.souls_fallenSoulsLayoutPlayer3);
+        fallenSoulsLayoutPlayer4 = (LinearLayout) findViewById(R.id.souls_fallenSoulsLayoutPlayer4);
         fallenSoulsCountPlayer1 = (TextView) findViewById(R.id.souls_fallenSoulsCountPlayer1);
         fallenSoulsCountPlayer2 = (TextView) findViewById(R.id.souls_fallenSoulsCountPlayer2);
         fallenSoulsCountPlayer3 = (TextView) findViewById(R.id.souls_fallenSoulsCountPlayer3);

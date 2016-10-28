@@ -6,6 +6,14 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/grayBackground</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ButtonStyle">
+        <item name="android:background">@color/colorPrimaryDark</item>
+        <item name="android:layout_margin">3dp</item>
     </style>
 
 </resources>
