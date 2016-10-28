@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">SoulsCounter</string>
+
+    <string name="soulsCounter">Compteur d\'âmes</string>
+    <string name="levelCost">coût des niveaux</string>
+    <string name="transfer">transfert d\'âmes</string>
+
     <string name="player1Name">Joueur 1</string>
     <string name="player2Name">Joueur 2</string>
     <string name="player3Name">Joueur 3</string>

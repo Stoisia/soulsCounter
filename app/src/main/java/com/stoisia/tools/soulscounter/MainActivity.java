@@ -22,21 +22,21 @@ public class MainActivity extends TabActivity {
         intent = new Intent().setClass(this, Souls.class);
         spec = tabHost
                 .newTabSpec("Widget")
-                .setIndicator("Souls")
+                .setIndicator(getResources().getString(R.string.soulsCounter))
                 .setContent(intent);
         tabHost.addTab(spec);
 
         intent = new Intent().setClass(this, LevelCost.class);
         spec = tabHost
                 .newTabSpec("Form")
-                .setIndicator("LevelCost")
+                .setIndicator(getResources().getString(R.string.levelCost))
                 .setContent(intent);
         tabHost.addTab(spec);
 
         intent = new Intent().setClass(this, Transfer.class);
         spec = tabHost
                 .newTabSpec("onglet3")
-                .setIndicator("Transfer")
+                .setIndicator(getResources().getString(R.string.transfer))
                 .setContent(intent);
         tabHost.addTab(spec);
 
