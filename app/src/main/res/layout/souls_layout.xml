@@ -6,11 +6,10 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:layout_toLeftOf="@+id/souls_totalSoulsCount"
         android:layout_alignBottom="@id/souls_totalSoulsCount"
         android:layout_marginRight="6dp"
+        android:layout_marginBottom="9dp"
         android:src="@drawable/souls_logo"/>
     <TextView
         android:id="@id/souls_totalSoulsCount"
@@ -19,7 +18,9 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:text="0"
-        android:textSize="40dp" />
+        android:textSize="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"/>
     <!--
     player list with souls count
     -->
@@ -29,124 +30,37 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/souls_totalSoulsCount">
 
-        <RelativeLayout
+        <com.stoisia.tools.soulscounter.CustomComponent.PlayerView
             android:id="@+id/souls_player1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
-            android:background="@color/aliveColor"
-            android:clickable="true"
-            android:padding="2dp">
+            />
 
-            <ImageView
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center"
-                android:src="@drawable/character" />
-
-            <TextView
-                android:id="@+id/souls_soulsPlayer1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="0"
-                android:textSize="18dp"
-                android:textStyle="bold"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <com.stoisia.tools.soulscounter.CustomComponent.PlayerView
             android:id="@+id/souls_player2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
-            android:background="@color/aliveColor"
-            android:clickable="true"
-            android:padding="2dp">
+            />
 
-            <ImageView
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/character" />
-
-            <TextView
-                android:id="@+id/souls_soulsPlayer2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="0"
-                android:textSize="18dp"
-                android:textStyle="bold" />
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <com.stoisia.tools.soulscounter.CustomComponent.PlayerView
             android:id="@+id/souls_player3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
-            android:background="@color/aliveColor"
-            android:clickable="true"
-            android:padding="2dp">
+            />
 
-            <ImageView
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/character"/>
-
-            <TextView
-                android:id="@+id/souls_soulsPlayer3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="0"
-                android:textSize="18dp"
-                android:textStyle="bold" />
-
-
-        </RelativeLayout>
-
-        <RelativeLayout
+        <com.stoisia.tools.soulscounter.CustomComponent.PlayerView
             android:id="@+id/souls_player4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="3dp"
             android:layout_weight="1"
-            android:background="@color/aliveColor"
-            android:clickable="true"
-            android:padding="2dp">
-
-            <ImageView
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_centerHorizontal="true"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/character" />
-
-            <TextView
-                android:id="@+id/souls_soulsPlayer4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:text="0"
-                android:textSize="18dp"
-                android:textStyle="bold" />
-
-
-        </RelativeLayout>
+            />
     </LinearLayout>
     <!--
     players's fallen souls count

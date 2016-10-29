@@ -4,16 +4,14 @@ package com.stoisia.tools.soulscounter;
  * Created by portableNico on 26/10/2016.
  */
 
-import android.annotation.TargetApi;
 import android.app.Activity;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.stoisia.tools.soulscounter.CustomComponent.PlayerView;
 
 import com.stoisia.tools.soulscounter.Controller.SoulsController;
 
@@ -22,8 +20,7 @@ public class Souls extends Activity {
      * Called when the activity is first created.
      */
     private TextView totalSoulsCount;
-    private RelativeLayout player1, player2, player3, player4;
-    private TextView soulsCountPlayer1, soulsCountPlayer2, soulsCountPlayer3, soulsCountPlayer4;
+    private PlayerView player1, player2, player3, player4;
     private LinearLayout fallenSoulsLayoutPlayer1, fallenSoulsLayoutPlayer2, fallenSoulsLayoutPlayer3, fallenSoulsLayoutPlayer4;
     private TextView fallenSoulsCountPlayer1, fallenSoulsCountPlayer2, fallenSoulsCountPlayer3, fallenSoulsCountPlayer4;
     private TextView howManySouls;
@@ -36,14 +33,10 @@ public class Souls extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.souls_layout);
         totalSoulsCount = (TextView) findViewById(R.id.souls_totalSoulsCount);
-        player1 = (RelativeLayout) findViewById(R.id.souls_player1);
-        player2 = (RelativeLayout) findViewById(R.id.souls_player2);
-        player3 = (RelativeLayout) findViewById(R.id.souls_player3);
-        player4 = (RelativeLayout) findViewById(R.id.souls_player4);
-        soulsCountPlayer1 = (TextView) findViewById(R.id.souls_soulsPlayer1);
-        soulsCountPlayer2 = (TextView) findViewById(R.id.souls_soulsPlayer2);
-        soulsCountPlayer3 = (TextView) findViewById(R.id.souls_soulsPlayer3);
-        soulsCountPlayer4 = (TextView) findViewById(R.id.souls_soulsPlayer4);
+        player1 = (PlayerView) findViewById(R.id.souls_player1);
+        player2 = (PlayerView) findViewById(R.id.souls_player2);
+        player3 = (PlayerView) findViewById(R.id.souls_player3);
+        player4 = (PlayerView) findViewById(R.id.souls_player4);
         fallenSoulsLayoutPlayer1 = (LinearLayout) findViewById(R.id.souls_fallenSoulsLayoutPlayer1);
         fallenSoulsLayoutPlayer2 = (LinearLayout) findViewById(R.id.souls_fallenSoulsLayoutPlayer2);
         fallenSoulsLayoutPlayer3 = (LinearLayout) findViewById(R.id.souls_fallenSoulsLayoutPlayer3);
@@ -247,16 +240,16 @@ public class Souls extends Activity {
         totalSoulsCount.setText(Integer.toString(controller.getTotalSoulsPlayer()));
 
         //couleur de fond des joueurs
-        player1.setBackgroundColor(controller.isPlayerDead(0) ? deathColor : aliveColor);
-        player2.setBackgroundColor(controller.isPlayerDead(1) ? deathColor : aliveColor);
-        player3.setBackgroundColor(controller.isPlayerDead(2) ? deathColor : aliveColor);
-        player4.setBackgroundColor(controller.isPlayerDead(3) ? deathColor : aliveColor);
+        player1.SetPlayerIsDead(controller.isPlayerDead(0));
+        player2.SetPlayerIsDead(controller.isPlayerDead(1));
+        player3.SetPlayerIsDead(controller.isPlayerDead(2));
+        player4.SetPlayerIsDead(controller.isPlayerDead(3));
 
         //compte d'ames de chaque joueurs
-        soulsCountPlayer1.setText(Integer.toString(controller.getPlayerSoulsCount(0)));
-        soulsCountPlayer2.setText(Integer.toString(controller.getPlayerSoulsCount(1)));
-        soulsCountPlayer3.setText(Integer.toString(controller.getPlayerSoulsCount(2)));
-        soulsCountPlayer4.setText(Integer.toString(controller.getPlayerSoulsCount(3)));
+        player1.SetPlayerSoulsCount(controller.getPlayerSoulsCount(0));
+        player2.SetPlayerSoulsCount(controller.getPlayerSoulsCount(1));
+        player3.SetPlayerSoulsCount(controller.getPlayerSoulsCount(2));
+        player4.SetPlayerSoulsCount(controller.getPlayerSoulsCount(3));
 
         //visibilité d'ames au sol
         fallenSoulsLayoutPlayer1.setVisibility(controller.getPlayerFallenSoulsCount(0) == 0 ? View.INVISIBLE : View.VISIBLE);
