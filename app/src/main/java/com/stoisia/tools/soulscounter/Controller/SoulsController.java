@@ -10,9 +10,21 @@ import java.util.ArrayList;
  */
 public class SoulsController {
     private ArrayList<Player> listPlayer;
+    private ArrayList<Integer> mPresetSoulsCount = new ArrayList<>();
 
     public SoulsController() {
         listPlayer = GameData.GetInstance().getPlayerList();
+        mPresetSoulsCount.add(10);
+        mPresetSoulsCount.add(20);
+        mPresetSoulsCount.add(35);
+        mPresetSoulsCount.add(40);
+        mPresetSoulsCount.add(50);
+        mPresetSoulsCount.add(80);
+        mPresetSoulsCount.add(120);
+        mPresetSoulsCount.add(150);
+        mPresetSoulsCount.add(200);
+        mPresetSoulsCount.add(400);
+        mPresetSoulsCount.add(600);
     }
 
     public int getTotalSoulsPlayer() {
@@ -86,5 +98,9 @@ public class SoulsController {
         if (listPlayer.get(playerNb).isDead()) return false;
         listPlayer.get(playerNb).takeBackFallenSouls();
         return true;
+    }
+
+    public ArrayList<Integer> getPresetSoulsCount() {
+        return mPresetSoulsCount;
     }
 }

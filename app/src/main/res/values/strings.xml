@@ -5,6 +5,7 @@
     <string name="fightMode">Mode combat</string>
     <string name="transfer">transfert d\'âmes</string>
 
+    <string name="soulsPresetTitle">nombre d\'âmes</string>
     <string name="player1Name">Joueur 1</string>
     <string name="player2Name">Joueur 2</string>
     <string name="player3Name">Joueur 3</string>

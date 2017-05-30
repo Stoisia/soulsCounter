@@ -158,104 +158,37 @@
     <!--
     add souls commands
     -->
-    <LinearLayout
-        android:id="@+id/souls_addSoulsCommands1"
+
+    <!--Presets-->
+    <HorizontalScrollView
+        android:id="@+id/mPresetSoulsValuesScrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/souls_addSoulsCommands2"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/souls_add10Souls"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:text="+10" />
-
-        <Button
-            android:id="@+id/souls_add30Souls"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:text="+30" />
-
-        <Button
-            android:id="@+id/souls_add35Souls"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:text="+35" />
-
-        <Button
-            android:id="@+id/souls_add40Souls"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:text="+40" />
-
-        <Button
-            android:id="@+id/souls_add150Souls"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:text="+150" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@id/souls_addSoulsCommands2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_above="@+id/souls_addCustomSoulsCount"
-        android:orientation="horizontal">
+        android:layout_toLeftOf="@+id/mUpdatePresetSoulsValuesButton">
 
-        <Button
-            android:id="@+id/souls_add160Souls"
+        <LinearLayout
+            android:id="@+id/mPresetSoulsValuesLinearLayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:text="+160" />
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/souls_add200Souls"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            style="@style/ButtonStyle"
-            android:text="+200" />
+        </LinearLayout>
+    </HorizontalScrollView>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="+200"
-            style="@style/ButtonStyle"
-            android:visibility="invisible" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="+200"
-            style="@style/ButtonStyle"
-            android:visibility="invisible" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="+200"
-            style="@style/ButtonStyle"
-            android:visibility="invisible" />
-    </LinearLayout>
+    <!--Update presets-->
+    <Button
+        android:id="@+id/mUpdatePresetSoulsValuesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_above="@+id/souls_addCustomSoulsCount"
+        style="@style/ButtonStyle"
+        android:text="UPDATE" />
 
     <LinearLayout
-        android:id="@id/souls_addCustomSoulsCount"
+        android:id="@+id/souls_addCustomSoulsCount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

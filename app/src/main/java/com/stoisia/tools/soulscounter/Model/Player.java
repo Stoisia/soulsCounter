@@ -24,11 +24,6 @@ public class Player {
 
     public Player(String name) {
         mName = name;
-        mPresetHpValues.add(12);
-        mPresetHpValues.add(23);
-        mPresetHpValues.add(45);
-        mPresetHpValues.add(87);
-        mPresetHpValues.add(104);
     }
 
     public int getSoulsCount() {

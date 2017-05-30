@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.stoisia.tools.soulscounter.CustomComponent.PlayerView;
 
 import com.stoisia.tools.soulscounter.Controller.SoulsController;
+import com.stoisia.tools.soulscounter.CustomComponent.PresetUpdateDialog;
 
 public class Souls extends Activity {
     /**
@@ -25,7 +26,8 @@ public class Souls extends Activity {
     private LinearLayout fallenSoulsLayoutPlayer1, fallenSoulsLayoutPlayer2, fallenSoulsLayoutPlayer3, fallenSoulsLayoutPlayer4;
     private TextView fallenSoulsCountPlayer1, fallenSoulsCountPlayer2, fallenSoulsCountPlayer3, fallenSoulsCountPlayer4;
     private TextView howManySouls;
-    private Button add10Souls, add30Souls, add35Souls, add40Souls, add150Souls, add160Souls, add200Souls, selectPlayer, plusSouls, minusSouls;
+    private LinearLayout mPresetSoulsValuesLinearLayout;
+    private Button mUpdatePresetSoulsValuesButton, selectPlayer, plusSouls, minusSouls;
     private SoulsController controller;
     private int countSelectedPlayer;
 
@@ -46,13 +48,8 @@ public class Souls extends Activity {
         fallenSoulsCountPlayer2 = (TextView) findViewById(R.id.souls_fallenSoulsCountPlayer2);
         fallenSoulsCountPlayer3 = (TextView) findViewById(R.id.souls_fallenSoulsCountPlayer3);
         fallenSoulsCountPlayer4 = (TextView) findViewById(R.id.souls_fallenSoulsCountPlayer4);
-        add10Souls = (Button) findViewById(R.id.souls_add10Souls);
-        add30Souls = (Button) findViewById(R.id.souls_add30Souls);
-        add35Souls = (Button) findViewById(R.id.souls_add35Souls);
-        add40Souls = (Button) findViewById(R.id.souls_add40Souls);
-        add150Souls = (Button) findViewById(R.id.souls_add150Souls);
-        add160Souls = (Button) findViewById(R.id.souls_add160Souls);
-        add200Souls = (Button) findViewById(R.id.souls_add200Souls);
+        mPresetSoulsValuesLinearLayout = (LinearLayout) findViewById(R.id.mPresetSoulsValuesLinearLayout);
+        mUpdatePresetSoulsValuesButton = (Button) findViewById(R.id.mUpdatePresetSoulsValuesButton);
         selectPlayer = (Button) findViewById(R.id.souls_selectPlayer);
         howManySouls = (TextView) findViewById(R.id.souls_howManySouls);
         plusSouls = (Button) findViewById((R.id.souls_plusSouls));
@@ -132,53 +129,21 @@ public class Souls extends Activity {
                 refreshInterface();
             }
         });
-        add10Souls.setOnClickListener(new View.OnClickListener() {
+        mUpdatePresetSoulsValuesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                controller.addSoulsToAllPlayersAlive(10);
-                refreshInterface();
-            }
-        });
-        add30Souls.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                controller.addSoulsToAllPlayersAlive(30);
-                refreshInterface();
-            }
-        });
-        add35Souls.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                controller.addSoulsToAllPlayersAlive(35);
-                refreshInterface();
-            }
-        });
-        add40Souls.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                controller.addSoulsToAllPlayersAlive(40);
-                refreshInterface();
-            }
-        });
-        add150Souls.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                controller.addSoulsToAllPlayersAlive(150);
-                refreshInterface();
-            }
-        });
-        add160Souls.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                controller.addSoulsToAllPlayersAlive(160);
-                refreshInterface();
-            }
-        });
-        add200Souls.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                controller.addSoulsToAllPlayersAlive(200);
-                refreshInterface();
+                String presetTitle = getResources().getString(R.string.soulsCounter);
+                new PresetUpdateDialog(Souls.this, presetTitle, controller.getPresetSoulsCount(), new PresetUpdateDialog.IDialogEvent() {
+                    @Override
+                    public void onValidate() {
+                        refreshInterface();
+                    }
+
+                    @Override
+                    public void onAbort() {
+
+                    }
+                }).show();
             }
         });
 
@@ -282,5 +247,28 @@ public class Souls extends Activity {
             selectPlayer.setText(getResources().getText(R.string.player4Name));
         else
             selectPlayer.setText(getResources().getText(R.string.allPlayers));
+
+        mPresetSoulsValuesLinearLayout.removeAllViews();
+        for (int presetSoulsCount : controller.getPresetSoulsCount()) {
+
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(70, RelativeLayout.LayoutParams.WRAP_CONTENT);
+            layoutParams.setMargins(5, 15, 5, 15);
+
+            TextView presetValueTextView = new TextView(this);
+            presetValueTextView.setText(presetSoulsCount + "");
+            presetValueTextView.setTag(presetSoulsCount);
+            int colorPrimary = getResources().getColor(R.color.colorPrimary);
+            presetValueTextView.setBackgroundColor(colorPrimary);
+            presetValueTextView.setPadding(10, 10, 10, 10);
+            presetValueTextView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+            presetValueTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int value = (int)view.getTag();
+                    controller.addSoulsToAllPlayersAlive(value);
+                }
+            });
+            mPresetSoulsValuesLinearLayout.addView(presetValueTextView, layoutParams);
+        }
     }
 }
