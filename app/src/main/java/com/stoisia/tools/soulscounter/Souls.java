@@ -266,6 +266,7 @@ public class Souls extends Activity {
                 public void onClick(View view) {
                     int value = (int)view.getTag();
                     controller.addSoulsToAllPlayersAlive(value);
+                    refreshInterface();
                 }
             });
             mPresetSoulsValuesLinearLayout.addView(presetValueTextView, layoutParams);
