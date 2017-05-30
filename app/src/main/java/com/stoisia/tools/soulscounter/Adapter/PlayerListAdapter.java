@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.stoisia.tools.soulscounter.CustomComponent.PlayerNameDialog;
 import com.stoisia.tools.soulscounter.CustomComponent.ValueUpdateDialog;
+import com.stoisia.tools.soulscounter.CustomComponent.ValueUpdateWithPresetDialog;
 import com.stoisia.tools.soulscounter.Model.Player;
 import com.stoisia.tools.soulscounter.R;
 
@@ -132,6 +133,28 @@ public class PlayerListAdapter extends BaseAdapter {
                 }
             });
 
+            playerListItem.mPlayerHpValueTextView.setTag(player);
+            playerListItem.mPlayerHpValueTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    final Player player = (Player) view.getTag();
+                    String title = mContext.getResources().getText(R.string.hpTitle).toString();
+                    new ValueUpdateWithPresetDialog(mContext, title, player.getHpValue(), player.getHpMaxAfterDeathEffect(), player.getPresetHpValues(), new ValueUpdateWithPresetDialog.IDialogEvent() {
+                        @Override
+                        public void onValidate(int value) {
+                            int actualHpValue = player.getHpValue();
+                            player.setHpValue(actualHpValue + value);
+                            PlayerListAdapter.this.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onAbort() {
+
+                        }
+                    }).show();
+                }
+            });
+
             playerListItem.mPlayerHpMaxAfterDeathEffectTextView.setTag(player);
             playerListItem.mPlayerHpMaxAfterDeathEffectTextView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -167,9 +190,31 @@ public class PlayerListAdapter extends BaseAdapter {
 
                 @Override
                 public void onStopTrackingTouch(SeekBar seekBar) {
-                    Player player = (Player) seekBar.getTag();
-                    player.setHpValue(seekBar.getProgress());
+                    //Player player = (Player) seekBar.getTag();
+                    //player.setHpValue(seekBar.getProgress());
                     PlayerListAdapter.this.notifyDataSetChanged();
+                }
+            });
+
+            playerListItem.mPlayerMpValueTextView.setTag(player);
+            playerListItem.mPlayerMpValueTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    final Player player = (Player) view.getTag();
+                    String title = mContext.getResources().getText(R.string.mpTitle).toString();
+                    new ValueUpdateWithPresetDialog(mContext, title, player.getMpValue(), player.getMpMax(), player.getPresetMpValues(), new ValueUpdateWithPresetDialog.IDialogEvent() {
+                        @Override
+                        public void onValidate(int value) {
+                            int actualMpValue = player.getMpValue();
+                            player.setMpValue(actualMpValue + value);
+                            PlayerListAdapter.this.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onAbort() {
+
+                        }
+                    }).show();
                 }
             });
 
@@ -208,9 +253,31 @@ public class PlayerListAdapter extends BaseAdapter {
 
                 @Override
                 public void onStopTrackingTouch(SeekBar seekBar) {
-                    Player player = (Player) seekBar.getTag();
-                    player.setMpValue(seekBar.getProgress());
+                    //Player player = (Player) seekBar.getTag();
+                    //player.setMpValue(seekBar.getProgress());
                     PlayerListAdapter.this.notifyDataSetChanged();
+                }
+            });
+
+            playerListItem.mPlayerStaminaValueTextView.setTag(player);
+            playerListItem.mPlayerStaminaValueTextView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    final Player player = (Player) view.getTag();
+                    String title = mContext.getResources().getText(R.string.mpTitle).toString();
+                    new ValueUpdateWithPresetDialog(mContext, title, player.getStaminaValue(), player.getStaminaMax(), player.getPresetStaminaValues(), new ValueUpdateWithPresetDialog.IDialogEvent() {
+                        @Override
+                        public void onValidate(int value) {
+                            int actualStaminaValue = player.getStaminaValue();
+                            player.setStaminaValue(actualStaminaValue + value);
+                            PlayerListAdapter.this.notifyDataSetChanged();
+                        }
+
+                        @Override
+                        public void onAbort() {
+
+                        }
+                    }).show();
                 }
             });
 
@@ -249,8 +316,8 @@ public class PlayerListAdapter extends BaseAdapter {
 
                 @Override
                 public void onStopTrackingTouch(SeekBar seekBar) {
-                    Player player = (Player) seekBar.getTag();
-                    player.setStaminaValue(seekBar.getProgress());
+                    //Player player = (Player) seekBar.getTag();
+                    //player.setStaminaValue(seekBar.getProgress());
                     PlayerListAdapter.this.notifyDataSetChanged();
                 }
             });

@@ -1,5 +1,8 @@
 package com.stoisia.tools.soulscounter.Model;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 /**
  * Created by portableNico on 26/10/2016.
  */
@@ -10,14 +13,22 @@ public class Player {
     private int fallenSouls = 0;
     private int mHpMax = 100;
     private int mHpValue = 100;
+    private ArrayList<Integer> mPresetHpValues = new ArrayList<>();
     private int mMpMax = 50;
     private int mMpValue = 50;
+    private ArrayList<Integer> mPresetMpValues = new ArrayList<>();
     private int mStaminaMax = 120;
     private int mStaminaValue = 120;
+    private ArrayList<Integer> mPresetStaminaValues = new ArrayList<>();
     private int mDeathLevel = 0;
 
     public Player(String name) {
         mName = name;
+        mPresetHpValues.add(12);
+        mPresetHpValues.add(23);
+        mPresetHpValues.add(45);
+        mPresetHpValues.add(87);
+        mPresetHpValues.add(104);
     }
 
     public int getSoulsCount() {
@@ -60,20 +71,11 @@ public class Player {
         return mHpMax;
     }
 
-    public int getHpMaxAfterDeathEffect() {
-        double coef = 1.0;
-        switch (mDeathLevel){
-            case 1: coef = 0.9; break;
-            case 2: coef = 0.75; break;
-            case 3: coef = 0.5; break;
-        }
-        return (int)(mHpMax * coef);
-    }
-
     public void setHpMax(int hpMax) {
         this.mHpMax = hpMax;
 
-        if(mHpValue > getHpMaxAfterDeathEffect()){
+        if (mHpMax < 0) mHpMax = 0;
+        if (mHpValue > getHpMaxAfterDeathEffect()) {
             mHpValue = getHpMaxAfterDeathEffect();
         }
     }
@@ -83,7 +85,43 @@ public class Player {
     }
 
     public void setHpValue(int hpValue) {
+        if (hpValue > getHpMaxAfterDeathEffect()) {
+            this.mHpValue = getHpMaxAfterDeathEffect();
+            return;
+        }
+        if (hpValue < 0) {
+            this.mHpValue = 0;
+            return;
+        }
         this.mHpValue = hpValue;
+    }
+
+    public int getHpMaxAfterDeathEffect() {
+        double coef = 1.0;
+        switch (mDeathLevel) {
+            case 1:
+                coef = 0.9;
+                break;
+            case 2:
+                coef = 0.75;
+                break;
+            case 3:
+                coef = 0.5;
+                break;
+        }
+        return (int) (mHpMax * coef);
+    }
+
+    public ArrayList<Integer> getPresetHpValues() {
+        return mPresetHpValues;
+    }
+
+    public void removePresetHpValue(int value) {
+        if (mPresetHpValues.contains(value)) mPresetHpValues.remove(value);
+    }
+
+    public void addPresetHpValue(int value) {
+        if (!mPresetHpValues.contains(value)) mPresetHpValues.add(value);
     }
 
     public int getMpMax() {
@@ -92,7 +130,8 @@ public class Player {
 
     public void setMpMax(int mpMax) {
         this.mMpMax = mpMax;
-        if(mMpValue > mMpMax) mMpValue = mMpMax;
+        if (mMpMax < 0) mMpValue = 0;
+        if (mMpValue > mMpMax) mMpValue = mMpMax;
     }
 
     public int getMpValue() {
@@ -100,7 +139,27 @@ public class Player {
     }
 
     public void setMpValue(int mpValue) {
+        if (mpValue > mMpMax) {
+            this.mMpValue = mMpMax;
+            return;
+        }
+        if (mpValue < 0) {
+            this.mMpValue = 0;
+            return;
+        }
         this.mMpValue = mpValue;
+    }
+
+    public ArrayList<Integer> getPresetMpValues() {
+        return mPresetMpValues;
+    }
+
+    public void removePresetMpValue(int value) {
+        if (mPresetMpValues.contains(value)) mPresetMpValues.remove(value);
+    }
+
+    public void addPresetMpValue(int value) {
+        if (!mPresetMpValues.contains(value)) mPresetMpValues.add(value);
     }
 
     public int getStaminaMax() {
@@ -109,7 +168,8 @@ public class Player {
 
     public void setStaminaMax(int staminaMax) {
         this.mStaminaMax = staminaMax;
-        if(mStaminaValue > mStaminaMax) mStaminaValue = mStaminaMax;
+        if (mStaminaMax < 0) mStaminaMax = 0;
+        if (mStaminaValue > mStaminaMax) mStaminaValue = mStaminaMax;
     }
 
     public int getStaminaValue() {
@@ -117,7 +177,27 @@ public class Player {
     }
 
     public void setStaminaValue(int staminaValue) {
+        if (staminaValue > mStaminaMax) {
+            this.mStaminaValue = mStaminaMax;
+            return;
+        }
+        if (staminaValue < 0) {
+            this.mStaminaValue = 0;
+            return;
+        }
         this.mStaminaValue = staminaValue;
+    }
+
+    public ArrayList<Integer> getPresetStaminaValues() {
+        return mPresetStaminaValues;
+    }
+
+    public void removePresetStaminaValue(int value) {
+        if (mPresetStaminaValues.contains(value)) mPresetStaminaValues.remove(value);
+    }
+
+    public void addPresetStaminaValue(int value) {
+        if (!mPresetStaminaValues.contains(value)) mPresetStaminaValues.add(value);
     }
 
     public int getDeathLevel() {
@@ -125,9 +205,10 @@ public class Player {
     }
 
     public void setDeathLevel(int deathLevel) {
+        if (deathLevel > 3 || deathLevel < 0) return;
         this.mDeathLevel = deathLevel;
 
-        if(mHpValue > getHpMaxAfterDeathEffect()){
+        if (mHpValue > getHpMaxAfterDeathEffect()) {
             mHpValue = getHpMaxAfterDeathEffect();
         }
     }

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="10dp">
+
+    <!--Plus / Minus-->
+    <LinearLayout
+        android:id="@+id/mOperatorLinearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/mPlusOperatorTextView"
+            android:layout_width="20dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="+"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/mMinusOperatorTextView"
+            android:layout_width="20dp"
+            android:layout_height="50dp"
+            android:background="@color/colorPrimary"
+            android:gravity="center"
+            android:text="-"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <!--Value title-->
+    <TextView
+        android:id="@+id/mValueNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/mOperatorLinearLayout"
+        android:text="HP"
+        android:textColor="@color/black" />
+    <!--Value-->
+    <TextView
+        android:id="@+id/mValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_toRightOf="@+id/mValueNameTextView"
+        android:text="83"
+        android:textColor="@color/black" />
+    <TextView
+        android:id="@+id/mValueSlashTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/mValueTextView"
+        android:text=" / "
+        android:textColor="@color/black" />
+    <!--Max-->
+    <TextView
+        android:id="@+id/mMaxValueTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/mValueSlashTextView"
+        android:text="100"
+        android:textColor="@color/black" />
+
+    <!--Presets-->
+    <HorizontalScrollView
+        android:id="@+id/mPresetValuesScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/mValueNameTextView"
+        android:layout_toLeftOf="@+id/mUpdatePresetValuesButton"
+        android:layout_toRightOf="@+id/mOperatorLinearLayout">
+
+        <LinearLayout
+            android:id="@+id/mPresetValuesLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!--Update presets-->
+    <Button
+        android:id="@+id/mUpdatePresetValuesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/mValueNameTextView"
+        android:text="UPDATE" />
+
+    <!--custom value-->
+    <EditText
+        android:id="@+id/mValueEditText"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/mUpdateValueButton"
+        android:layout_below="@+id/mPresetValuesScrollView"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/mUpdateValueButton"
+        android:gravity="right"
+        android:inputType="number"
+        android:text="0" />
+
+    <!--valid custom value-->
+    <Button
+        android:id="@+id/mUpdateValueButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mPresetValuesScrollView"
+        android:layout_toLeftOf="@+id/mAbortValueUpdateButton"
+        android:text="@string/validate" />
+
+    <!--abort-->
+    <Button
+        android:id="@+id/mAbortValueUpdateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/mPresetValuesScrollView"
+        android:text="@string/abort" />
+</RelativeLayout>

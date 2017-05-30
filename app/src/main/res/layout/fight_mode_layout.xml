@@ -38,12 +38,14 @@
             android:layout_gravity="center"
             android:text="@string/round"/>
         <TextView
+            android:id="@+id/mRoundTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="1"/>
 
         <Button
+            android:id="@+id/mNextRoundButton"
             android:layout_width="wrap_content"
             android:layout_height="55dp"
             style="@style/ButtonStyle"
@@ -52,6 +54,7 @@
             android:text="@string/nextRound"/>
 
         <Button
+            android:id="@+id/mStopFightButton"
             android:layout_width="wrap_content"
             android:layout_height="55dp"
             style="@style/ButtonStyle"

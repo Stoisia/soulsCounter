@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp">
+
+    <TextView
+        android:id="@+id/mPresetTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:text="@string/preset" />
+
+    <TextView
+        android:id="@+id/mPresetTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/mPresetTextView"
+        android:layout_marginLeft="5dp"
+        android:textColor="@color/black"
+        android:text="HP" />
+
+    <!--Presets-->
+    <HorizontalScrollView
+        android:id="@+id/mPresetValuesScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/mPresetTextView">
+
+        <LinearLayout
+            android:id="@+id/mPresetValuesLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_gravity="center_vertical"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <EditText
+        android:id="@+id/mNewPresetValueEditText"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mPresetValuesScrollView"
+        android:inputType="number"
+        android:layout_alignParentLeft="true"/>
+    <Button
+        android:id="@+id/mAddNewPresetValueButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mPresetValuesScrollView"
+        android:layout_toRightOf="@+id/mNewPresetValueEditText"
+        android:text="@string/add"/>
+
+    <!--valid custom value-->
+    <Button
+        android:id="@+id/mUpdatePresetsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mAddNewPresetValueButton"
+        android:layout_toLeftOf="@+id/mAbortPresetUpdateButton"
+        android:text="@string/validate" />
+
+    <!--abort-->
+    <Button
+        android:id="@+id/mAbortPresetUpdateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/mAddNewPresetValueButton"
+        android:text="@string/abort" />
+</RelativeLayout>
