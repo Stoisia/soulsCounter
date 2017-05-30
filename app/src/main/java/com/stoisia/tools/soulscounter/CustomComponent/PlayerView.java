@@ -58,6 +58,7 @@ public class PlayerView extends RelativeLayout {
 //
 //    </RelativeLayout>
 
+    private TextView playerNameTextView;
     private TextView playerSoulsCountTextView;
     private int aliveColor;
     private int deathColor;
@@ -73,15 +74,23 @@ public class PlayerView extends RelativeLayout {
         setClickable(true);
         setPadding(2, 2, 2, 2);
 
-        LayoutParams layoutParams = new LayoutParams(size90dp,size90dp);
+        LayoutParams layoutParams = new LayoutParams(size90dp, size90dp);
 
         ImageView image = new ImageView(context);
         image.setImageResource(R.drawable.character);
         layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
         addView(image, layoutParams);
 
+        playerNameTextView = new TextView(context);
+        layoutParams = new LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+        playerNameTextView.setText("Player 1");
+        playerNameTextView.setTextSize(15);
+        addView(playerNameTextView, layoutParams);
+
         playerSoulsCountTextView = new TextView(context);
-        layoutParams = new LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams = new LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         layoutParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
         layoutParams.addRule(RelativeLayout.CENTER_VERTICAL);
         playerSoulsCountTextView.setText("0");
@@ -89,11 +98,15 @@ public class PlayerView extends RelativeLayout {
         addView(playerSoulsCountTextView, layoutParams);
     }
 
-    public void SetPlayerSoulsCount(int soulsCount){
+    public void setPlayerName(String playerName) {
+        playerNameTextView.setText(playerName);
+    }
+
+    public void setPlayerSoulsCount(int soulsCount) {
         playerSoulsCountTextView.setText(Integer.toString(soulsCount));
     }
 
-    public void SetPlayerIsDead(boolean isDead){
+    public void setPlayerIsDead(boolean isDead) {
         setBackgroundColor(isDead ? deathColor : aliveColor);
     }
 }

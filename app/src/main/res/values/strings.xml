@@ -2,7 +2,7 @@
     <string name="app_name">SoulsCounter</string>
 
     <string name="soulsCounter">Compteur d\'âmes</string>
-    <string name="levelCost">coût des niveaux</string>
+    <string name="fightMode">Mode combat</string>
     <string name="transfer">transfert d\'âmes</string>
 
     <string name="player1Name">Joueur 1</string>
@@ -11,4 +11,18 @@
     <string name="player4Name">Joueur 4</string>
     <string name="allPlayers">Tous les joueurs</string>
     <string name="theSoulsToTransfer">0</string>
+
+    <string name="deathLevelTitle">état carcasse</string>
+    <string name="startFight">démarrer le combat</string>
+    <string name="round">Round </string>
+    <string name="nextRound">Round suivante</string>
+    <string name="stopFight">Arrêter le combat</string>
+
+    <string name="validate">Valider</string>
+    <string name="abort">Annuler</string>
+
+    <string name="hpMaxTitle">HP max</string>
+    <string name="mpMaxTitle">MP max</string>
+    <string name="staminaMaxTitle">Stamina max</string>
+
 </resources>

@@ -5,6 +5,9 @@
     <color name="colorAccent">#a9a78f</color>
     <color name="aliveColor">#a9a78f</color><!--159bd3-->
     <color name="deathColor">#cf2621</color>
+    <color name="hpColor">#cc272e</color>
+    <color name="mpColor">#2e2bbb</color>
+    <color name="staminaColor">#498844</color>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="grayBackground">#252926</color>

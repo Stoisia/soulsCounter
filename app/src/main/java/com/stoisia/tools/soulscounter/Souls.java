@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.stoisia.tools.soulscounter.CustomComponent.PlayerView;
 
 import com.stoisia.tools.soulscounter.Controller.SoulsController;
@@ -202,7 +203,7 @@ public class Souls extends Activity {
                 else if (selectPlayer.getText().equals(player2)) i = 1;
                 else if (selectPlayer.getText().equals(player3)) i = 2;
                 else if (selectPlayer.getText().equals(player4)) i = 3;
-                if (i<4)controller.addSoulsToPlayer(i, numberOfSoulsInInt);
+                if (i < 4) controller.addSoulsToPlayer(i, numberOfSoulsInInt);
                 else controller.addSoulsToAllPlayersAlive(numberOfSoulsInInt);
                 refreshInterface();
             }
@@ -219,7 +220,7 @@ public class Souls extends Activity {
                 else if (selectPlayer.getText().equals(player2)) i = 1;
                 else if (selectPlayer.getText().equals(player3)) i = 2;
                 else if (selectPlayer.getText().equals(player4)) i = 3;
-                if (i<4)controller.removeSoulsToPlayer(i, numberOfSoulsInInt);
+                if (i < 4) controller.removeSoulsToPlayer(i, numberOfSoulsInInt);
                 else controller.removeSoulsToAllPlayersAlive(numberOfSoulsInInt);
                 refreshInterface();
             }
@@ -230,6 +231,7 @@ public class Souls extends Activity {
     @Override
     public void onResume() {
         super.onResume();
+        refreshInterface();
     }
 
     private void refreshInterface() {
@@ -239,17 +241,23 @@ public class Souls extends Activity {
         //affiche le total des ames
         totalSoulsCount.setText(Integer.toString(controller.getTotalSoulsPlayer()));
 
+        //Nom des joueurs
+        player1.setPlayerName(controller.getPlayerName(0));
+        player2.setPlayerName(controller.getPlayerName(1));
+        player3.setPlayerName(controller.getPlayerName(2));
+        player4.setPlayerName(controller.getPlayerName(3));
+
         //couleur de fond des joueurs
-        player1.SetPlayerIsDead(controller.isPlayerDead(0));
-        player2.SetPlayerIsDead(controller.isPlayerDead(1));
-        player3.SetPlayerIsDead(controller.isPlayerDead(2));
-        player4.SetPlayerIsDead(controller.isPlayerDead(3));
+        player1.setPlayerIsDead(controller.isPlayerDead(0));
+        player2.setPlayerIsDead(controller.isPlayerDead(1));
+        player3.setPlayerIsDead(controller.isPlayerDead(2));
+        player4.setPlayerIsDead(controller.isPlayerDead(3));
 
         //compte d'ames de chaque joueurs
-        player1.SetPlayerSoulsCount(controller.getPlayerSoulsCount(0));
-        player2.SetPlayerSoulsCount(controller.getPlayerSoulsCount(1));
-        player3.SetPlayerSoulsCount(controller.getPlayerSoulsCount(2));
-        player4.SetPlayerSoulsCount(controller.getPlayerSoulsCount(3));
+        player1.setPlayerSoulsCount(controller.getPlayerSoulsCount(0));
+        player2.setPlayerSoulsCount(controller.getPlayerSoulsCount(1));
+        player3.setPlayerSoulsCount(controller.getPlayerSoulsCount(2));
+        player4.setPlayerSoulsCount(controller.getPlayerSoulsCount(3));
 
         //visibilité d'ames au sol
         fallenSoulsLayoutPlayer1.setVisibility(controller.getPlayerFallenSoulsCount(0) == 0 ? View.INVISIBLE : View.VISIBLE);

@@ -26,10 +26,10 @@ public class MainActivity extends TabActivity {
                 .setContent(intent);
         tabHost.addTab(spec);
 
-        intent = new Intent().setClass(this, LevelCost.class);
+        intent = new Intent().setClass(this, FightModeActivity.class);
         spec = tabHost
                 .newTabSpec("Form")
-                .setIndicator(getResources().getString(R.string.levelCost))
+                .setIndicator(getResources().getString(R.string.fightMode))
                 .setContent(intent);
         tabHost.addTab(spec);
 

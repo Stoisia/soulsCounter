@@ -15,8 +15,8 @@
             </intent-filter>
         </activity>
         <activity android:screenOrientation="portrait" android:name=".Souls"/>
-        <activity android:screenOrientation="portrait" android:name=".LevelCost"/>
         <activity android:screenOrientation="portrait" android:name=".Transfer"/>
+        <activity android:screenOrientation="portrait" android:name=".FightModeActivity"/>
     </application>
 
 </manifest>
