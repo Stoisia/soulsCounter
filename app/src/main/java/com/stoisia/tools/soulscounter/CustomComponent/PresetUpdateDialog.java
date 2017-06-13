@@ -79,6 +79,7 @@ public class PresetUpdateDialog extends Dialog {
                 } catch (NumberFormatException ex) {
                     return;
                 }
+                mNewPresetValueEditText.setText("");
                 if (mPresetValuesCopy.contains(presetValue)) return;
                 mPresetValuesCopy.add(presetValue);
                 updatePresetValues();
